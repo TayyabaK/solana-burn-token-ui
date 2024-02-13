@@ -31,19 +31,6 @@ import Image from 'next/image';
 
 
 export const ElonView: FC = ({ }) => {
-  const router = useRouter();
-  const { publicKey } = useWallet();
-  const { networkConfiguration } = useNetworkConfiguration();
-  const network = networkConfiguration as WalletAdapterNetwork;
-  // const endpoint = () => clusterApiUrl(network)
-  const wallet = useWallet();
-  const [burnTrx, setBurnTrx] = useState("")
-  const [supply, setSupply] = useState("")
-  const [amount, setAmount] = useState("")
-  const [connection, setConnection] = useState(null)
-  const { connection: wconn } = useConnection();
-  const [loading, setLoading] = useState(false);
-
 
   const BLOCKCHAIN = "Solana";
   const TOKEN_ADDRESS = "HsJwK899BHXynZ28NaJhYeu1G77PLPBjYy84QTGYXaZ4";
@@ -52,6 +39,22 @@ export const ElonView: FC = ({ }) => {
   const TOTAL_SUPPLY = 100000000000;
   const BUY_SELL_TAX = "2% in Native tokens";
   const DECIMALS = 9;
+
+
+  const router = useRouter();
+  const { publicKey } = useWallet();
+  const { networkConfiguration } = useNetworkConfiguration();
+  const network = networkConfiguration as WalletAdapterNetwork;
+  // const endpoint = () => clusterApiUrl(network)
+  const wallet = useWallet();
+  const [burnTrx, setBurnTrx] = useState("")
+  const [supply, setSupply] = useState(TOTAL_SUPPLY)
+  const [amount, setAmount] = useState("")
+  const [connection, setConnection] = useState(null)
+  const { connection: wconn } = useConnection();
+  const [loading, setLoading] = useState(false);
+
+
 
   useEffect(() => {
     console.log("useEffect", network)
@@ -103,6 +106,7 @@ export const ElonView: FC = ({ }) => {
     // console.log("mint auth",mintAuthority.mintAuthority.toString())
     return mintAuthority.mintAuthority.toString()
   }
+
 
   // connection
   const balance = useUserSOLBalanceStore((s) => s.balance)
@@ -253,6 +257,7 @@ export const ElonView: FC = ({ }) => {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             className='input-type'
+
           >
 
           </input>
