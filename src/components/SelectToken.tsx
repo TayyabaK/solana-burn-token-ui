@@ -68,7 +68,7 @@ export const SelectToken: FC = () => {
                     className="group w-60 m-2 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
                     onClick={onClick} disabled={!publicKey}
                 >
-                    <div className="hidden group-disabled:block">
+                    <div className="hidden group-disabled:block text-white">
                         Wallet not connected
                     </div>
 
